@@ -44,3 +44,10 @@ atpl_node <- scrape(session) %>%
 atpl <- atpl_node %>% 
   html_table() %>% 
   flatten_df()
+
+
+## ---------------- Basic Cleaning ------------
+
+
+#test 
+ß

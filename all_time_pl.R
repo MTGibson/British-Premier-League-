@@ -62,6 +62,11 @@ atpl<-atpl %>%
   rename_with(~ newnames[which(oldnames == .x)], .cols = oldnames)
 
 
+atpl$matches_played <- as.numeric(gsub(",","",atpl$matches_played))
+atpl$goals_for <- as.numeric(gsub(",","",atpl$goals_for))
+atpl$goals_against <- as.numeric(gsub(",","",atpl$goals_against))
+atpl$goal_difference <- as.numeric(gsub(",","",atpl$goal_difference))
+atpl$points <- as.numeric(gsub(",","",atpl$points))
 
 
 atpl = apply_labels(atpl,
@@ -85,3 +90,5 @@ atpl = apply_labels(atpl,
                     )
 
 
+
+## --------- Visualizations ----------

@@ -29,6 +29,7 @@ library(purrr)   # 0.3.4
 library(stringr) # 1.4.0
 library(glue)    # 1.4.0
 library(rlang)   # 0.4.6
+library(expss)
 ## ------------Scraping the 2021-22 Season teams data---------------
 
 url <- "https://en.wikipedia.org/wiki/Premier_League_records_and_statistics#All-time_Premier_League_table"
@@ -48,6 +49,39 @@ atpl <- atpl_node %>%
 
 ## ---------------- Basic Cleaning ------------
 
+oldnames <- colnames(atpl)
+oldnames
 
-#test 
-ß
+newnames <- c("position","club_name","seasons_count","matches_played","matches_won",
+              "matches_drawn","matches_lost","goals_for","goals_against","goal_difference",
+              "points","cseas_firplace","cseas_secplace","cseas_thirplace","cseas_forplace",
+              "relegated_count","best_position")
+
+
+atpl<-atpl %>% 
+  rename_with(~ newnames[which(oldnames == .x)], .cols = oldnames)
+
+
+
+
+atpl = apply_labels(atpl,
+                    position = "Position",
+                    club_name = "Number of cylinders",
+                    seasons_count = "Count of seasons played",
+                    matches_played = "Count of matches played",
+                    matches_won = "Count of matches won",
+                    matches_drawn = "Count of matches resulting in a draw",
+                    matches_lost = "Count of matches lost",
+                    goals_for = "Count of goals scored by a team in any game across all seasons",
+                    goals_against = "Count of goals scored against a team in any game across all seasons",
+                    goal_difference = "Net of goals for - goals against",
+                    points = "Points earned",
+                    cseas_firplace = "Count of seasons team got first place in league",
+                    cseas_secplace = "Count of seasons team got second place in league",
+                    cseas_thirplace = "Count of seasons team got third place in league",
+                    cseas_forplace = "Count of seasons team got fourth place in league",
+                    relegated_count = "Count of seasons team was relegated",
+                    best_position = "Best position team has earned across all seasons"
+                    )
+
+

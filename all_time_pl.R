@@ -1,23 +1,23 @@
-## ---------------------------
+## ---------- Preamble -----------------
 ## Script name: All time premier league stats
 ## Purpose of script: Learn how to scrape the web 'politely'
 ## Author: Mike Gibson 
 ## Date Created: 2021-07-28
-## ---------------------------
+## ----------- Notes ----------------
 ##
 ## Notes:
 ##   https://ivelasq.rbind.io/blog/politely-scraping/
 ##   https://ryo-n7.github.io/2020-05-14-webscrape-soccer-data-with-R/
 ##
 
-## ---------------------------
+## ----------- Setting Environment ----------------
 
 ## set working directory 
 
 setwd("~/Dropbox/Working/RStudio")
 
 
-## ---------------------------
+## -------------Loading packages --------------
 
 ## load up the packages we will need:  (uncomment as required)
 
